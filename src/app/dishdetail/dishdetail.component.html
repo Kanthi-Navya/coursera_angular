@@ -1,9 +1,9 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
   fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
+  <div fxFlex="40" >
 
-    <mat-card *ngIf="selectedDish">
+    <mat-card *ngIf="selectedDish" >
       <mat-card-header>
         <mat-card-title>
           <h3>{{selectedDish.name | uppercase}}</h3>
@@ -23,17 +23,17 @@
   </div>
 
   <div fxFlex="40">
+      <mat-list *ngIf="dish">
+        <h3>Comments</h3>
 
-    <mat-list *ngIf="dish">
-      <h3>Comments</h3>
+        <mat-list-item *ngFor="let comment of dish.comments">
 
-      <mat-list-item *ngFor="let comment of dish.comments">
+          <p matLine> {{comment.comment}} </p>
+          <p matLine> {{comment.rating}} stars </p>
+          <p matLine> -- {{comment.author}} {{comment.date | date:'fullDate' | uppercase }} </p>
+        </mat-list-item>
+      </mat-list>
 
-        <p matLine> {{comment.comment}} </p>
-        <p matLine> {{comment.rating}} stars </p>
-        <p matLine> -- {{comment.author}} {{comment.date | date:'fullDate' | uppercase }} </p>
-      </mat-list-item>
-    </mat-list>
   </div>
 
 </div>
